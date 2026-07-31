@@ -24,3 +24,8 @@ In any model there are two types of variables, parameter which are internal conf
 | Feature | Parameters | Hyperparameter |
 |---------|------------|----------------|
 | Origin  | learned automatically from data | Set manually by user or engine |
+| Determination Time | During training | Before Training |
+| Can they change during training? | Yes, Updates continuously | Usually remain fixed |
+| Examples | Weights , Biases | Learning rate, batch size, number of epochs, layer depth |
+```
+
