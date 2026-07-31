@@ -14,3 +14,13 @@ Learning Outcomes: After completing this notebook, you will be able to:
 
 Explain what is Optuna, why it was create, what problems it solve and how.
 Use Optuna
+
+
+# Part 0: Hyperparameter Tuning - The problem
+
+In any model there are two types of variables, parameter which are internal configuration variables that the model learn directly from the training data during training, while hyperparameters are external configuration variables whose values are set manually before the training process begins. The following table shows the key differences between them:
+
+```
+| Feature | Parameters | Hyperparameter |
+|---------|------------|----------------|
+| Origin  | learned automatically from data | Set manually by user or engine |
