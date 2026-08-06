@@ -23,11 +23,11 @@ Use Optuna
   In any model there are two types of variables, parameter which are internal configuration variables that the model learn directly from the training data during training, while hyperparameters are external configuration variables whose values are set manually before the training process begins and it dedicate how the model learns. The following table shows the key differences between them:
 
 ```
-| Feature                          | Parameters                      | Hyperparameter |
-|----------------------------------|---------------------------------|----------------|
-| Origin                           | learned automatically from data | Set manually by user or engine |
-| Determination Time               | During training                 | Before Training |
-| Can they change during training? | Yes, Updates continuously       | Usually remain fixed |
+| Feature                          | Parameters                      | Hyperparameter                                           |
+|----------------------------------|---------------------------------|----------------------------------------------------------|
+| Origin                           | learned automatically from data | Set manually by user or engine                           |
+| Determination Time               | During training                 | Before Training                                          |
+| Can they change during training? | Yes, Updates continuously       | Usually remain fixed                                     |
 | Examples                         | Weights , Biases                | Learning rate, batch size, number of epochs, layer depth |
 ```
 
@@ -79,7 +79,8 @@ The Grid Search tests every combination:
 | 2	   | 0.1	          | 16	       | Adam      |
 | 3	   | 0.1	          | 32	       | SGD       |
 | ...	 | ...	          | ...	       | ...       |
-| 18	 | 0.001	       | 64	       | Adam      |
+| 18	 | 0.001 	        | 64	       | Adam      |
+
 ```
 Advantages:
 
@@ -88,5 +89,24 @@ Advantages:
 - Good when there are only a few hyperparameters.
 
 Disadvantages:
+
 - It suffers heavily from combinatorial explosion. Adding parameters or finer value increments causes the number of required training runs to skyrocket into thousands or millions.
-  For example is we have 6 hyperparameters, and each has 10 values, then the grid search must perform 10⁶ = 1,000,000. 
+  
+  For example is we have 6 hyperparameters, and each has 10 values, then the grid search must perform 10⁶ = 1,000,000.
+
+**0.2.3: Random Search (Blind Sampling):**
+
+Instead of checking every point on a rigid grid, the engineer define statistical distributions (or a pool of choices) for each parameter, and the algorithm randomly selects a fixed number of combinations to test. The main problem in this search is that there is no memory from previous trails about what went right or wrong so the algorithm may repeat it again, this is called blind search.
+
+Advantages:
+
+- Much faster than Grid Search.
+- Explores more of the search space.
+- Works well in high-dimensional problems.
+
+Disadvantages:
+
+- Still random.
+- May miss the optimum.
+- Does not learn from previous trials.
+
