@@ -19,7 +19,8 @@ Use Optuna
 # Part 0: Hyperparameter Tuning - The problem
 
 **0.0: What is model hyperparameter and how they differ from model parameters:**
-In any model there are two types of variables, parameter which are internal configuration variables that the model learn directly from the training data during training, while hyperparameters are external configuration variables whose values are set manually before the training process begins and it dedicate how the model learns. The following table shows the key differences between them:
+
+  In any model there are two types of variables, parameter which are internal configuration variables that the model learn directly from the training data during training, while hyperparameters are external configuration variables whose values are set manually before the training process begins and it dedicate how the model learns. The following table shows the key differences between them:
 
 ```
 | Feature                          | Parameters                      | Hyperparameter |
@@ -31,7 +32,8 @@ In any model there are two types of variables, parameter which are internal conf
 ```
 
 **0.1: What is hyperparameters tuning?**
-Is the process of finding the best set of configuration settings for a machine learning model before training it to maximize its performance or to make it perform well on unseen data.
+
+  Is the process of finding the best set of configuration settings for a machine learning model before training it to maximize its performance or to make it perform well on unseen data.
 
 - Why we need hyperparameters tuning?
   Because different hyperparameters values dramatically affect model's performance, so we need to find the set values that make the model perform as we want before training it.
