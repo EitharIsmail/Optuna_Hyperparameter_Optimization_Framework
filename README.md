@@ -35,7 +35,8 @@ Use Optuna
 
   Is the process of finding the best set of configuration settings for a machine learning model before training it to maximize its performance or to make it perform well on unseen data.
 
-- Why we need hyperparameters tuning?
+Why we need hyperparameters tuning?
+
   Because different hyperparameters values dramatically affect model's performance (accuracy, stability, and generalization), so we need to find the set values that make the model perform as we want before training it.
   Here is an example that shows how different learning values can affect the model performance:
   If the learning rate is too high: The model might overshoot the optimal solution and never converge.
@@ -58,3 +59,31 @@ Disadvantages:
 
 **0.2.2: Grid Search (Traditional Standard):**
 
+Grid search systematically test all the combinations for all the possible values for all the hyperparameters. So we define a fixed grid of values for each hyperparameter, and the algorithm tests every single possible combination (the Cartesian product).
+
+For example is we want to tune the following:
+
+Learning Rate = [0.1, 0.01, 0.001]
+
+Batch Size = [16, 32, 64]
+
+Optimizer = [SGD, Adam]
+
+The Grid Search tests every combination:
+
+```
+|Trial |	Learning Rate | Batch Size | Optimizer |
+|------|----------------|------------|-----------|
+| 1	   | 0.1	          | 16	       | SGD       |
+| 2	   | 0.1	          | 16	       | Adam      |
+| 3	   | 0.1	          | 32	       | SGD       |
+| ...	 | ...	          | ...	       | ...       |
+| 18	 | 0.001	        | 64	       | Adam      |
+```
+Advantages:
+
+- Very easy to implement.
+- Guaranteed to test every specified combination.
+- Good when there are only a few hyperparameters.
+
+Disadvantages:
