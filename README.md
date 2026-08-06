@@ -88,3 +88,5 @@ Advantages:
 - Good when there are only a few hyperparameters.
 
 Disadvantages:
+- It suffers heavily from combinatorial explosion. Adding parameters or finer value increments causes the number of required training runs to skyrocket into thousands or millions.
+  For example is we have 6 hyperparameters, and each has 10 values, then the grid search must perform 10⁶ = 1,000,000. 
