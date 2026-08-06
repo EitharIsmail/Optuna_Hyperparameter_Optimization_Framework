@@ -79,7 +79,7 @@ The Grid Search tests every combination:
 | 2	   | 0.1	          | 16	       | Adam      |
 | 3	   | 0.1	          | 32	       | SGD       |
 | ...	 | ...	          | ...	       | ...       |
-| 18	 | 0.001	        | 64	       | Adam      |
+| 18	 | 0.001	       | 64	       | Adam      |
 ```
 Advantages:
 
