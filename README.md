@@ -36,10 +36,25 @@ Use Optuna
   Is the process of finding the best set of configuration settings for a machine learning model before training it to maximize its performance or to make it perform well on unseen data.
 
 - Why we need hyperparameters tuning?
-  Because different hyperparameters values dramatically affect model's performance, so we need to find the set values that make the model perform as we want before training it.
+  Because different hyperparameters values dramatically affect model's performance (accuracy, stability, and generalization), so we need to find the set values that make the model perform as we want before training it.
   Here is an example that shows how different learning values can affect the model performance:
   If the learning rate is too high: The model might overshoot the optimal solution and never converge.
   If the learning rate is too low: The model will take forever to train and might get stuck in a sub-optimal trap (Local Minimum).
 
+**0.2: Traditional (Classical) techniques used to perform hyperparameters**
 
-  
+**0.2.1: Manual Search (Oldest Technique):**
+
+This is the earliest and simplest approach. The machine learning engineer chooses hyperparameters based on experience, trains the model, observes the results, and adjusts them iteratively. This process relies entirely on human intuition.
+
+Advantages:
+- Simple.
+- No additional tools required.
+- Helps beginners understand the effect of each hyperparameter.
+Disadvantages:
+- Time-consuming.
+- Depends heavily on experience.
+- Can easily miss the best hyperparameter values.
+
+**0.2.2: Grid Search (Traditional Standard):**
+
