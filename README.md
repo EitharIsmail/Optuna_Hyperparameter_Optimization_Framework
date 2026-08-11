@@ -153,7 +153,17 @@ Disadvantages:
 
 ### 0.3: The need for Optuna:
 
-Optuna is a framework/tool use to orchestrate the experiment process to find the optimum set of hyperparameters values. It
+Optuna sits between brute‑force and full Bayesian frameworks. It provides intelligent samplers (e.g., TPE, CMA‑ES) that learn from past trials, supports pruning (stop bad trials early), and allows expressive, conditional search spaces defined inside the objective function.
+
+Let us see how optuna solved the following problems that previous techniques faced:
+
+1. The combinatorial explosion VS Intelligent Sampling:
+
+
+
+2. 
+
+Optuna can be defined as a framework/tool use to orchestrate the experiment process to find the optimum set of hyperparameters values. It
 ```
 - Suggests hyperparameters
 - Runs your objective function
@@ -163,8 +173,6 @@ Optuna is a framework/tool use to orchestrate the experiment process to find the
 - Repeats
 - Keeps the best configuration
 ```
-
-
 
 Finally hyperparameter optimization has moved from brute-force (grid) to guesswork (random) to informed exploration (Optuna). For practitioners, this means less time wasted and better results, especially with models that take hours to train.
 
