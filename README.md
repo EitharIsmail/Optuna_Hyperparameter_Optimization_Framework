@@ -110,3 +110,4 @@ Disadvantages:
 - May miss the optimum.
 - Does not learn from previous trials.
 
+## 0.3: How Optuna takle most of the problems previous techniques face?
