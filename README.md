@@ -155,13 +155,28 @@ Disadvantages:
 
 Optuna sits between brute‑force and full Bayesian frameworks. It provides intelligent samplers (e.g., TPE, CMA‑ES) that learn from past trials, supports pruning (stop bad trials early), and allows expressive, conditional search spaces defined inside the objective function.
 
-Let us see how optuna solved the following problems that previous techniques faced:
+Let us see how Optuna tackled the problems faced by previous techniques:
 
-1. The combinatorial explosion VS Intelligent Sampling:
+Optuna use a method called Tree-Structured Parzen Estimator in which instead of trying every combination or randomly select them, in stead it model "good" vs "bad" trails distribution, then focusing on the good trails distribution it ask whether the hyperparameter value belongs to the distribution, instead of predicting the performance. In other words, it look if the hyperparameter look similar to the hyperparameters that have already produced good results.
 
-
-
-2. 
+- How it works:
+  1. Initial Random Trials (Warm-up):
+     
+     Before building any statistical model, Optuna runs a few initial trials (controlled by n_startup_trials, usually set to 10) using purely random sampling. This builds an initial baseline dataset of parameters and their corresponding performance scores.
+     
+  2. Splitting the results (good VS bad):
+ 
+     Once enough trials are complete, Optuna splits the history into two distinct groups based on a threshold (often determined by a percentile parameter called $\gamma$, e.g., the top 20% vs. the remaining 80%).
+     - Group 1: Configurations that yielded good (low error / high accuracy) results.
+     - Group 2: Configurations that yielded bad results.
+     
+  3. Building the Distributions (l(x) and g(x)):
+  4. 
+     Following the Bayesian approach, Optuna fits probability density functions (often using Gaussian Mixture Models) to both groups:
+     l(x) = P(x \ y < y*): The probability distribution of parameters (x) given that the score (y) is better than the threshold (y*) (the "good" distribution).
+     g(x) = P(x \ y >= y*): The probability distribution of parameters (x) for the remaining trials (the "bad" distribution).
+     
+  6. Choose the next trail values: The model set values and compute the ratio for them using l(x) / g(X) to see from which distribution it will come.
 
 Optuna can be defined as a framework/tool use to orchestrate the experiment process to find the optimum set of hyperparameters values. It
 ```
