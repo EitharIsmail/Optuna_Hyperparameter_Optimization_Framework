@@ -18,7 +18,7 @@ Use Optuna
 
 # Part 0: Hyperparameter Tuning - The problem
 
-**0.0: What is model hyperparameter and how they differ from model parameters:**
+### 0.0: What is model hyperparameter and how they differ from model parameters:
 
   In any model there are two types of variables, parameter which are internal configuration variables that the model learn directly from the training data during training, while hyperparameters are external configuration variables whose values are set manually before the training process begins and it dedicate how the model learns. The following table shows the key differences between them:
 
@@ -31,18 +31,19 @@ Use Optuna
 | Examples                         | Weights , Biases                | Learning rate, batch size, number of epochs, layer depth |
 ```
 
-**0.1: What is hyperparameters tuning?**
+### 0.1: What is hyperparameters tuning?
 
   Is the process of finding the best set of configuration settings for a machine learning model before training it to maximize its performance or to make it perform well on unseen data.
 
 Why we need hyperparameters tuning?
 
   Because different hyperparameters values dramatically affect model's performance (accuracy, stability, and generalization), so we need to find the set values that make the model perform as we want before training it.
+  
   Here is an example that shows how different learning values can affect the model performance:
   If the learning rate is too high: The model might overshoot the optimal solution and never converge.
   If the learning rate is too low: The model will take forever to train and might get stuck in a sub-optimal trap (Local Minimum).
 
-**0.2: Traditional (Classical) techniques used to perform hyperparameters**
+### 0.2: Early techniques used to perform hyperparameters:
 
 **0.2.1: Manual Search (Oldest Technique):**
 
@@ -110,4 +111,37 @@ Disadvantages:
 - May miss the optimum.
 - Does not learn from previous trials.
 
-### 0.3: How Optuna tackle most of the problems previous techniques face?
+**0.2.4: Bayesian Optimization:**
+
+Is a techniques that build a probabilistic model (surogate model) of the objective function and use this model to select the most promising points to evaluate next. This approach is particularly useful in scenarios where the objective function is unknown, noisy, or costly to evaluate, as it aims to minimize the number of evaluations required to find the optimal solution.
+
+- What is the Surrogate model?
+
+The real objective function might be expensive in term of time or computational power:
+
+```
+hyperparameters → train model → validation accuracy
+```
+For example:
+```
+learning_rate = 0.001
+batch_size = 64
+       ↓
+Train neural network
+       ↓
+accuracy = 87%
+```
+Training the model could take 30 minutes.
+
+Instead of repeatedly training the real model, Bayesian Optimization builds a cheap approximation, called a surrogate model. It tries to learn: 
+
+hyperparameters → expected performance.
+
+
+### 0.3: The need for Optuna:
+
+
+
+
+Finally hyperparameter optimization has moved from brute-force (grid) to guesswork (random) to informed exploration (Optuna). For practitioners, this means less time wasted and better results, especially with models that take hours to train.
+
