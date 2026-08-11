@@ -113,7 +113,7 @@ Disadvantages:
 
 **0.2.4: Bayesian Optimization:**
 
-Is a techniques that build a probabilistic model (surogate model) of the objective function and use this model to select the most promising points to evaluate next. This approach is particularly useful in scenarios where the objective function is unknown, noisy, or costly to evaluate, as it aims to minimize the number of evaluations required to find the optimal solution.
+Instead of randomly selecting hyperparameters, this techniques learns from previous experiments. The idea is to build a probabilistic model (surrogate model) of the objective function and use this model to select the most promising points to evaluate next. This approach is particularly useful in scenarios where the objective function is unknown, noisy, or costly to evaluate, as it aims to minimize the number of evaluations required to find the optimal solution.
 
 - What is the Surrogate model?
 
@@ -134,12 +134,35 @@ accuracy = 87%
 Training the model could take 30 minutes.
 
 Instead of repeatedly training the real model, Bayesian Optimization builds a cheap approximation, called a surrogate model. It tries to learn: 
+```
+hyperparameters → expected performance
+```
+The Gaussian Processes are used as surrogate model, they are probabilistic machine learning models used for regression and classification tasks. The main difference from regular models is the instead of predicting a single value, they provide both predictions and a measure of uncertainty, making them useful for problems where confidence in predictions is important.
 
-hyperparameters → expected performance.
+Advantages:
 
+- Requires far fewer trials.
+- Excellent for expensive models.
+- Widely used in research and industry.
+  
+Disadvantages:
+
+- More mathematically complex.
+- Some overhead in modeling the search process.
+- Can be less effective in extremely high-dimensional spaces.
 
 ### 0.3: The need for Optuna:
 
+Optuna is a framework/tool use to orchestrate the experiment process to find the optimum set of hyperparameters values. It
+```
+- Suggests hyperparameters
+- Runs your objective function
+- Receives the result
+- Records the result
+- Decides what to try next
+- Repeats
+- Keeps the best configuration
+```
 
 
 
