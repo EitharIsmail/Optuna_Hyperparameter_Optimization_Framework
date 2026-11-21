@@ -7,7 +7,13 @@ authors = [
     { name = "Eithar Ismail", email = "gamareithar@gmail.com" }
 ]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "matplotlib>=3.11.2",
+    "optuna>=5.1.0",
+    "pandas>=3.1.1",
+    "tabulate>=0.10.0",
+    "torch>=2.15.0",
+]
 
 [project.scripts]
 optuna-hyperparameter-optimization-framework = "optuna_hyperparameter_optimization_framework:main"
