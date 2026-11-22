@@ -18,7 +18,7 @@ The presentation explains why hyperparameter tuning is important, how different 
 3. **Optuna Fundamentals** – Studies, Trials, Objective Functions, and Search Spaces.
 4. **Samplers** – Random Sampling, TPE, CMA-ES, and other optimization strategies.
 5. **Pruning** – Stopping unpromising trials before completing all training epochs.
-6. **Optuna Ecosystem** – Optuna Dashboard, Integrations, and Visualization.
+6. **Optuna Ecosystem** – Optuna Dashboard.
 7. **Practical Applications** – Applying Optuna to Machine Learning and PyTorch Deep Learning models.
 
 ## Learning Objectives
